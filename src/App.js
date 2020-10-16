@@ -21,9 +21,9 @@ useEffect(()=> {
 
   return (
     <div className='container mx-auto'>
-      <div clasName='grid grid-cols-3 gap-4'>
+      <div className="grid grid-cols-3 gap-4">
         {images.map(image=> (
-          <ImageCard/>
+          <ImageCard key={image.key} image={image}/>
         ))}
       </div>
     </div>
