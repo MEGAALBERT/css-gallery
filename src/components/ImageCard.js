@@ -1,38 +1,36 @@
 import React from 'react'
 
 function ImageCard({image}) {
+
+const tags = image.tags.split(',')
     return (
 <div className="max-w-sm rounded overflow-hidden shadow-lg">
       <img src={image.webformatURL} alt='' className='w-full'/>
       <div className='px-6 py-4'>
         <div className='font-bold text-purple-500 text-tl mb-2'>
-          Photo by Alberto M
+          Photo by {image.user}
         </div>
         <ul>
           <li>
             <strong>Views: </strong>
-            4000
+            {image.views}
           </li>
           <li>
             <strong>Downloads: </strong>
-            4000
+            {image.downloads}
           </li>
           <li>
             <strong>Likes: </strong>
-            4000
+            {image.likes}
           </li>
         </ul>
       </div>
       <div className='px-6 py-4'>
-        <span className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2'>
-          #tag1
+          {tags.map((tag, index)=> (
+        <span key={index} className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2'>
+        #{tag}
         </span>
-        <span className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2'>
-          #tag2
-        </span>
-        <span className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2'>
-          #tag3
-        </span>
+          ))}
       </div>  
     </div>
     )
